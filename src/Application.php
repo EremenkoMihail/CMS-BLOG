@@ -19,7 +19,7 @@ class Application
         \ActiveRecord\Config::initialize(function($cfg)
         {
             $cfg->set_model_directory(__DIR__ . '\Model');
-            $cfg->set_connections(array('development' => 'mysql://root:@127.0.0.1/skillbox'));
+            $cfg->set_connections(array('development' => 'mysql://root:root@127.0.0.1/skillbox'));
         });
     }
 

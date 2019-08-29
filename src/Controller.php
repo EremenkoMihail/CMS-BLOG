@@ -7,7 +7,17 @@ class Controller
 {
     public function index()
     {
-        return new View\View('index', ['title' => 'Index Controller']);
+        return new View\View('layout/blog/index', ['title' => 'EMS BLOG']);
+    }
+
+    public function signup()
+    {
+        return new View\View('layout/signup/index', ['title' => 'Sign up Blog']);
+    }
+
+    public function signin()
+    {
+        return new View\View('layout/signin/index', ['title' => 'Sign in Blog']);
     }
 
     public function about()
