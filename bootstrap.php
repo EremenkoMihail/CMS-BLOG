@@ -2,6 +2,7 @@
 
 const APP_DIR = __DIR__ . '/src/';
 const VIEW_DIR = __DIR__ . '/view/';
+const HOST = __DIR__;
 
 require __DIR__ . '/helpers.php';
 require __DIR__ . '/vendor/php-activerecord-master/ActiveRecord.php';

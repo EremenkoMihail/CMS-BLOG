@@ -25,7 +25,7 @@ class Route
             $function = explode('@', $callback);
             $obj = new $function[0];
             $method = $function[1];
-            return $obj->$method();
+            return $obj->$method($param);
         }
         throw new HttpException('Ошибка. Не правильно указана функция', 404);
     }

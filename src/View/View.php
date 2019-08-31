@@ -4,6 +4,7 @@
 namespace App\View;
 
 
+use App\Model\UserTools;
 use App\Renderable;
 
 class View implements Renderable
@@ -22,6 +23,7 @@ class View implements Renderable
         $path = str_replace('.','\\',$this->page);
 
         if (file_exists(VIEW_DIR . $path .".php")) {
+            $login = UserTools::statusSession();
             extract($this->properties);
             include VIEW_DIR . $path .".php";
         } else {

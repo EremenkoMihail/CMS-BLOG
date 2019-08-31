@@ -1,1 +1,0 @@
-<?include VIEW_DIR . "layout/base/footer.php";?>
