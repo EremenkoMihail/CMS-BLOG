@@ -22,7 +22,7 @@
             <label for="img">Фото для статьи</label>
             <input type="file" class="form-control-file" name="img" id="img">
         </div>
-        <button type="submit" class="btn btn-primary">Добавить</button>
+        <button type="submit" class="btn btn-primary">Сохранить</button>
         <button class="btn btn-link"><a href="/index.php/admin/article">Отмена</a></button>
     </form>
 <?include "footer.php";?>

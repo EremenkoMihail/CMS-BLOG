@@ -12,7 +12,13 @@ class Controller
 {
     public function index($param)
     {
-        return new View\View('layout/blog/index', ['title' => 'EMS BLOG']);
+        return new View\View(
+            'layout/blog/index',
+            [
+                'title' => 'Блог программиста',
+                'content' => Articles::all(),
+            ]
+        );
     }
 
     public function signup($param)
@@ -154,11 +160,43 @@ class Controller
         );
     }
 
+    public function articleUpdatePost($param)
+    {
+        $article = Articles::find(['id_article' => $param[0]]);
+        $article->name_article = $_POST['name'];
+        $article->date_article = date("d-m-Y H:i:s");
+        $article->preview = $_POST['preview'];
+        $article->detail_text = $_POST['detail'];
+
+        if (!empty($_FILES)) {
+            $uploaddir = HOST . '/upload/article/';
+            $uploadfile = $uploaddir . basename($_FILES['img']['name']);
+            if (move_uploaded_file($_FILES['img']['tmp_name'], $uploadfile)) {
+                $article->img_article = str_replace(HOST, '', $uploadfile);
+            }
+        }
+
+        if ($article->save())  header('location:/index.php/admin/article');
+    }
+
     public function articleDelete($id)
     {
         $art = Articles::find(['id_article' => $id[0]]);
         $attr = $art->attributes();
-        if ($art->delete() && unlink($attr['img_article'])) header('location:/index.php/admin/article');
+        if ($art->delete() && unlink(HOST . $attr['img_article'])) header('location:/index.php/admin/article');
+    }
+
+    public function articleDetail($param)
+    {
+        $article = Articles::find(['id_article' => $param[0]]);
+        $content = $article->attributes();
+        return new View\View(
+            'layout/blog/article_detail',
+            [
+                'title' => $content['name_article'],
+                'content' => $content,
+            ]
+        );
     }
 
     public function groups($param)

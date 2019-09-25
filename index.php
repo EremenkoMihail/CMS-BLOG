@@ -32,10 +32,8 @@ $router->get('/admin/article', Controller::class . '@articles');
 $router->get('/admin/add/article', Controller::class . '@articleAdd');
 $router->get('/admin/delete/article/*/', Controller::class . '@articleDelete');
 $router->get('/admin/update/article/*/', Controller::class . '@articleUpdate');
+$router->get('/blog/detail/*/', Controller::class . '@articleDetail');
 
-$router->get('/blog/detail/*/', function ($param2) {
-    return "Test page With detail id=$param2";
-});
 $router->get('/port/', function () {
     return new View\View('index', ['title' => 'Port Page']);
 });
@@ -44,6 +42,7 @@ $router->post('/signup', Controller::class . '@userSignup');
 $router->post('/signin', Controller::class . '@userLogin');
 $router->post('/admin/update/user/*/', Controller::class . '@userUpdatePost');
 $router->post('/admin/add/article', Controller::class . '@articleAddPost');
+$router->post('/admin/update/article/*/', Controller::class . '@articleUpdatePost');
 //echo "<pre>";
 $application = new Application($router);
 $application->run();
