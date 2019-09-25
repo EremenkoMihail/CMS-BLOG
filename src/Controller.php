@@ -57,6 +57,7 @@ class Controller
         UserTools::logOut();
     }
 
+
     public function userDelete($id)
     {
         $user = User::find(['id' => $id[0]]);
@@ -107,6 +108,7 @@ class Controller
             ]
         );
     }
+
 
     public function articles($param)
     {
@@ -199,39 +201,41 @@ class Controller
         );
     }
 
+
     public function groups($param)
     {
-        //$jax = new Groups(array('name_group' => 'Контент-редактор'));
-        //$jax->save();
-        return new View\View(
-            'group_list',
-            [
-                'title' => 'About Controller',
-                'content' => Groups::all(),
-            ]
-        );
+        $group = new GroupController();
+        return $group->all();
     }
 
-    public function books($param)
+    public function groupsAdd($param)
     {
-        return new View\View(
-            'books_list',
-            [
-                'title' => 'About Controller',
-                'content' => Book::all(),
-            ]
-        );
+        $group = new GroupController();
+        return $group->add();
     }
 
-    public function booksPOST($param)
+    public function groupsDelete($id)
     {
-        return new View\View(
-            'index',
-            [
-                'title' => 'About Controller',
-                'content' => $_POST["ff"],
-            ]
-        );
+        $group = new GroupController();
+        $group->delete($id);
+    }
+
+    public function groupsUpdate($id)
+    {
+        $group = new GroupController();
+        return $group->update($id);
+    }
+
+    public function groupsAddPost()
+    {
+        $group = new GroupController();
+        $group->addPost();
+    }
+
+    public function groupsUpdatePost($id)
+    {
+        $group = new GroupController();
+        $group->updatePost($id);
     }
 
 }

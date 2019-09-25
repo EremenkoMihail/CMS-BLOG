@@ -84,7 +84,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="/index.php/admin/groups">
                                 <span data-feather="file-text"></span>
                                 Группы пользователей
                             </a>
