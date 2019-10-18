@@ -1,4 +1,4 @@
-<?include "header.php";?>
+<?include VIEW_DIR . "layout/admin/header.php";?>
 <h1><?=$title?></h1>
     <form method="post">
         <div class="form-group">
@@ -27,4 +27,4 @@
 
     <div class="col"><?//=$content['id_group']?></div>
 
-<?include "footer.php";?>
+<?include VIEW_DIR . "layout/admin/footer.php";?>

@@ -1,4 +1,4 @@
-<? include  "header.php";?>
+<? include  VIEW_DIR . "layout/admin/header.php";?>
 
     <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3">
         <h3 class="h3">Статьи</h3>
@@ -39,4 +39,4 @@
         }?>
         </tbody>
     </table>
-<? include "footer.php";?>
+<? include VIEW_DIR . "layout/admin/footer.php";?>

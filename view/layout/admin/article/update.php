@@ -1,4 +1,4 @@
-<?include "header.php";?>
+<?include VIEW_DIR . "layout/admin/header.php";?>
 <h1><?=$title?></h1>
     <form method="post" enctype="multipart/form-data">
         <div class="form-group">
@@ -25,4 +25,4 @@
         <button type="submit" class="btn btn-primary">Сохранить</button>
         <button class="btn btn-link"><a href="/index.php/admin/article">Отмена</a></button>
     </form>
-<?include "footer.php";?>
+<?include VIEW_DIR . "layout/admin/footer.php";?>

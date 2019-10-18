@@ -47,9 +47,9 @@ abstract class AbstractController
     public function all()
     {
         return new View\View(
-            'layout/admin/groups/all',
+            'layout/admin/'. $this->folderName . '/all',
             [
-                'title' => 'Группы пользователей',
+                'title' => $this->titleAll,
                 'content' => call_user_func($this->model . '::all'),
             ]
         );

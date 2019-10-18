@@ -10,6 +10,6 @@
             <textarea class="form-control" name="description_group" id="description_group" rows="3"></textarea>
         </div>
         <button type="submit" class="btn btn-primary">Добавить</button>
-        <button class="btn btn-link"><a href="/index.php/admin/groups">Отмена</a></button>
+        <button class="btn btn-link"><a href="/index.php/admin/group">Отмена</a></button>
     </form>
 <?include VIEW_DIR . "layout/admin/footer.php";?>
