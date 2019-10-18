@@ -51,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/index.php/admin/users">
+                            <a class="nav-link" href="/index.php/admin/user">
                                 <span data-feather="users"></span>
                                 Пользователи
                             </a>
