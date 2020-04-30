@@ -30,6 +30,15 @@ class UserTools
         }
     }
 
+    public static function loginUserForAdmin($param)
+    {
+        $user = User::find(array('email' => $param['email'], 'password' => $param['password']));
+        if ($user) {
+            $param['id_group'] = $user->id_group;
+            self::sessionStart($param);
+        }
+    }
+
     public static function logOut()
     {
         session_destroy();

@@ -54,7 +54,12 @@ class Controller
         UserTools::loginUser(['email' => $_POST['email'], 'password' => $_POST['password']]);
     }
 
-    public function userSignUp($param)
+    public function userLoginForAdmin()
+    {
+        UserTools::loginUserForAdmin(['email' => $_POST['email'], 'password' => $_POST['password']]);
+    }
+
+    public function userSignUp()
     {
         UserTools::registredUser(['name' => $_POST['name'], 'email' => $_POST['email'], 'password' => $_POST['password'], 'id_group' => 3]);
     }

@@ -6,12 +6,14 @@ use App\Exception\HttpException;
 
 class Route
 {
+    private $access;
     private $method;
     private $path;
     private $callback;
 
-    public function __construct($method, $path, $callback)
+    public function __construct($access, $method, $path, $callback)
     {
+        $this->access = $access;
         $this->method = $method;
         $this->path = $path;
         $this->callback = $callback;
@@ -46,8 +48,12 @@ class Route
 
     public function run($uri)
     {
-        $lenParamPath = count(explode('/', trim($this->getPath(), '/*')));
-        $paramUri = array_slice(explode('/', trim($uri, '/')), $lenParamPath);
-        return $this->prepareCallback($this->callback, $paramUri);
+        if(AccessTools::verification($this->access)) {
+            $lenParamPath = count(explode('/', trim($this->getPath(), '/*')));
+            $paramUri = array_slice(explode('/', trim($uri, '/')), $lenParamPath);
+            return $this->prepareCallback($this->callback, $paramUri);
+        } else {
+            return 'Недостаточно прав для доступа к разделу';
+        }
     }
 }

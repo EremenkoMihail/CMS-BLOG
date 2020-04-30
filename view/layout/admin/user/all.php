@@ -18,20 +18,28 @@
             <th scope="col">Email</th>
             <th scope="col">ID группы</th>
             <th scope="col">Управление</th>
+            <th scope="col">Вход</th>
         </tr>
     </thead>
     <tbody>
     <?if (is_array($content)) {
         foreach ($content as $item) { ?>
-            <? $book = $item->attributes(); ?>
+            <? $user = $item->attributes(); ?>
             <tr>
-                <th><?= $book['id']?></th>
-                <th><?= $book['name']?></th>
-                <th><?= $book['email']?></th>
-                <th><?= $book['id_group']?></th>
+                <th><?= $user['id']?></th>
+                <th><?= $user['name']?></th>
+                <th><?= $user['email']?></th>
+                <th><?= $user['id_group']?></th>
                 <th>
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/index.php/admin/delete/user/<?= $book['id']?>/">Удалить</a></button>
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/index.php/admin/update/user/<?= $book['id']?>/">Редактировать</a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/index.php/admin/delete/user/<?= $user['id']?>/">Удалить</a></button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="/index.php/admin/update/user/<?= $user['id']?>/">Редактировать</a></button>
+                </th>
+                <th>
+                    <form action="/index.php/signinForAdmin/" method="post">
+                        <input type="hidden" name="email" value="<?=$user['email']?>">
+                        <input type="hidden" name="password" value="<?=$user['password']?>">
+                        <button type="submit" class="btn btn-sm btn-outline-secondary">Войти</button>
+                    </form>
                 </th>
             </tr>
             <?

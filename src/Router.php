@@ -8,14 +8,14 @@ class Router
 {
     private $route;
 
-    public function get($uri, $function)
+    public function get($uri, $function, $access = 4)
     {
-        $this->route[] = ["method" => "GET", "uri" => self::normalizeUri($uri), "function" => $function];
+        $this->route[] = ["access" => $access, "method" => "GET", "uri" => self::normalizeUri($uri), "function" => $function];
     }
 
-    public function post($uri, $function)
+    public function post($uri, $function, $access = 4)
     {
-        $this->route[] = ["method" => "POST", "uri" => self::normalizeUri($uri), "function" => $function];
+        $this->route[] = ["access" => $access, "method" => "POST", "uri" => self::normalizeUri($uri), "function" => $function];
     }
 
     public static function normalizeUri($uri)
@@ -33,7 +33,7 @@ class Router
         $uri = (!empty($uri)) ? $uri : '/';
 
         foreach ($this->route as $k => $item) {
-            $route = new Route($item["method"], $item["uri"], $item["function"]);
+            $route = new Route($item["access"], $item["method"], $item["uri"], $item["function"]);
             if ($route->match($item["method"], $uri)) {
                 return $route->run($uri);
             }

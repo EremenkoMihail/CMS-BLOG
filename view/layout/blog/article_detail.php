@@ -11,8 +11,8 @@
                 </div><!-- /.blog-post -->
 
                 <nav class="blog-pagination">
-                    <a class="btn btn-outline-primary" href="#">Older</a>
-                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Newer</a>
+                    <a class="btn btn-outline-primary" href="#">Предидущая статья</a>
+                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Следующая статья</a>
                 </nav>
 
             </div><!-- /.blog-main -->
@@ -51,6 +51,36 @@
                 </div>
             </aside><!-- /.blog-sidebar -->
 
+            <div class="my-3 p-3 bg-white rounded shadow-sm">
+                <h5 class="pb-2 mb-0">Оставьте свой комментарий</h5>
+                <div class="pb-2 mb-4">
+                    <form>
+                        <div class="form-group row">
+                            <label for="name" class="col-sm-2 col-form-label">Имя</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="name" value="">
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="comment" class="col-sm-2 col-form-label">Комментарий</label>
+                            <div class="col-sm-10">
+                                <textarea class="form-control" id="comment" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <h6 class="border-bottom border-gray pb-2 mb-0">Комментарии</h6>
+                <div class="media text-muted pt-3">
+                    <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">
+                        <strong class="d-block text-gray-dark">@username</strong>
+                        Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
+                    </p>
+                </div>
+                <small class="d-block text-right mt-3">
+                    <a href="#">Все комментарии</a>
+                </small>
+            </div>
         </div><!-- /.row -->
     </main><!-- /.container -->
 <? include "footer.php";?>
